@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Pixel_Rate: 256
+    - _Pixel_Rate: 128
     - _VStep: 1080
     m_Colors: []
   m_BuildTextureStacks: []
