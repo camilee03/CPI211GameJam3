@@ -7,12 +7,16 @@ using UnityEngine.UI;
 public class LilGuyAI : MonoBehaviour
 {
     public Transform goal;
+    public bool canStart;
     NavMeshAgent agent;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = goal.position;
+    }
+    private void Update()
+    {
+        if (canStart) { agent.destination = goal.position; }
     }
 
     public void SoundMove(bool attracts, Vector3 target)
