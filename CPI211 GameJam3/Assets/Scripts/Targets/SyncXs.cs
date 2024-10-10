@@ -14,10 +14,10 @@ public class SyncXs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && canPlace) {
-            if (nextSync == null) { StartGame(); return; }
+        if (Input.GetMouseButtonDown(0) && canPlace) {
+            if (nextSync == null) { StartGame(); }
+            else { nextSync.canPlace = true; }
             canPlace = false; 
-            nextSync.canPlace = true;
         }
 
         if (canPlace) { FollowMouse(); }
@@ -27,13 +27,12 @@ public class SyncXs : MonoBehaviour
     {
         var mousePos = Input.mousePosition;
         mousePos.z = 25; // select distance = 10 units from the camera
-        Debug.Log(currentCamera.ScreenToWorldPoint(mousePos));
         var mouseNow = currentCamera.ScreenToWorldPoint(mousePos);
 
-        if (mouseNow.x < 10 && mouseNow.x > -10 && mouseNow.y < 16 && mouseNow.y > -4)
+        if (mouseNow.x < 10 && mouseNow.x > -10 && mouseNow.y < 13 && mouseNow.y > -7)
         {
             transform.position = currentCamera.ScreenToWorldPoint(mousePos);
-            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * 3, 0.5f, transform.localPosition.y * 3);
+            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * 3, 1f, (transform.localPosition.y+3) * 3);
         }
     }
 
