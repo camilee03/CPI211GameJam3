@@ -44,5 +44,5 @@ Material:
     - _Normal_Threshold: 0.5
     - _OVERLAY_OBJECTS: 1
     m_Colors:
-    - _Outline_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Outline_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
   m_BuildTextureStacks: []
