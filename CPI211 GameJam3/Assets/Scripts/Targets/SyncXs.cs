@@ -34,7 +34,7 @@ public class SyncXs : MonoBehaviour
         {
             float magnitude = 14f;
             transform.position = currentCamera.ScreenToWorldPoint(mousePos);
-            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * magnitude, 1f, (transform.localPosition.y + 6) * magnitude);
+            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * magnitude, -5f, (transform.localPosition.y + 10) * magnitude);
         }
     }
 
