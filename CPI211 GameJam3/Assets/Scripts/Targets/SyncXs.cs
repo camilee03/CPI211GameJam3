@@ -28,11 +28,13 @@ public class SyncXs : MonoBehaviour
         var mousePos = Input.mousePosition;
         mousePos.z = 25; // select distance = 10 units from the camera
         var mouseNow = currentCamera.ScreenToWorldPoint(mousePos);
+        Debug.Log(mouseNow);
 
-        if (mouseNow.x < 10 && mouseNow.x > -10 && mouseNow.y < 13 && mouseNow.y > -7)
+        if (mouseNow.x < 10 && mouseNow.x > -10 && mouseNow.y < 30 && mouseNow.y > -10)
         {
+            float magnitude = 14f;
             transform.position = currentCamera.ScreenToWorldPoint(mousePos);
-            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * 3, 1f, (transform.localPosition.y+3) * 3);
+            otherLocation.transform.localPosition = new Vector3(transform.localPosition.x * magnitude, 1f, (transform.localPosition.y + 6) * magnitude);
         }
     }
 

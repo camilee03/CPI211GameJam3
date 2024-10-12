@@ -27,8 +27,8 @@ public class LilGuyAI : MonoBehaviour
             agent.stoppingDistance = 1;
 
             // Debug.Log(transform.position + ":" + goal.position);
-            //soundPosition = goal.position; // reset sound position
-            //objPosition = goal.position; // reset objective position
+            // soundPosition = goal.position; // reset sound position
+            // objPosition = goal.position; // reset objective position
         }
         else {
             canStart = agent.isStopped;
