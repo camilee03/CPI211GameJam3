@@ -66,7 +66,7 @@ public class LilGuyAI : MonoBehaviour
         else { GetComponentInChildren<WinCondition>().CheckWin(false); }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void TriggerEnter(Collider other)
     {
         print("HERE?");
         if (other.gameObject.tag == "Destination")

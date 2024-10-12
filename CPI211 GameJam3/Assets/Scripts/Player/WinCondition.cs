@@ -11,6 +11,8 @@ public class WinCondition : MonoBehaviour
     [SerializeField] GameObject WinScreen;
     [SerializeField] GameObject LooseScreen;
 
+    [SerializeField] AudioSource scream;
+
     public void AccomplishedObjective()
     {
         currentNumObjectives++;
@@ -21,6 +23,7 @@ public class WinCondition : MonoBehaviour
         if (currentNumObjectives < numObjectives || isDead)
         {
             // you loose boo restart
+            scream.Play();
             LooseScreen.SetActive(true);
         }
         else

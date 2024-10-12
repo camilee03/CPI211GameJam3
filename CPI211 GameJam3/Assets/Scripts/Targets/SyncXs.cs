@@ -28,7 +28,7 @@ public class SyncXs : MonoBehaviour
         var mousePos = Input.mousePosition;
         mousePos.z = 25; // select distance = 10 units from the camera
         var mouseNow = currentCamera.ScreenToWorldPoint(mousePos);
-        Debug.Log(mouseNow);
+        //Debug.Log(mouseNow);
 
         if (mouseNow.x < 10 && mouseNow.x > -10 && mouseNow.y < 30 && mouseNow.y > -10)
         {
