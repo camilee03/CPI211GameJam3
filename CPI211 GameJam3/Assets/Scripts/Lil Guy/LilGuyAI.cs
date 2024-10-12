@@ -66,7 +66,7 @@ public class LilGuyAI : MonoBehaviour
         else { GetComponentInChildren<WinCondition>().CheckWin(false); }
     }
 
-    private void TriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         print("HERE?");
         if (other.gameObject.tag == "Destination")
