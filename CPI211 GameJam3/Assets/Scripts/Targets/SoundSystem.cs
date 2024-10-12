@@ -10,6 +10,11 @@ public class SoundSystem : MonoBehaviour
     float radius = 10;
     [SerializeField] bool toggle;
 
+    private void Start()
+    {
+        StartCoroutine(ToggleSound());
+    }
+
     private void Update()
     {
         if (toggle) { MakeSound(); }
@@ -31,6 +36,13 @@ public class SoundSystem : MonoBehaviour
             }
         }
 
+        StartCoroutine(ToggleSound());
+    }
+
+    IEnumerator ToggleSound()
+    {
         toggle = false;
+        yield return new WaitForSeconds(5);
+        toggle = true;
     }
 }
