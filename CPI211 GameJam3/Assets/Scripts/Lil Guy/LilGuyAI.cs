@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -68,7 +69,6 @@ public class LilGuyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("HERE?");
         if (other.gameObject.tag == "Destination")
         {
             print("AHHHH");
