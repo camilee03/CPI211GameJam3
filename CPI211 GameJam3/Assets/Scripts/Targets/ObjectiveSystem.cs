@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectiveSystem : MonoBehaviour
 {
-    float radius = 20;
+    float radius = 30;
     bool toggle = true;
 
     private void Update()

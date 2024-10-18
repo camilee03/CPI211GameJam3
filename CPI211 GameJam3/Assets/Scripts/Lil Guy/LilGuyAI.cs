@@ -16,6 +16,8 @@ public class LilGuyAI : MonoBehaviour
     Vector3 soundPosition;
     Vector3 objPosition;
 
+    bool wait;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,6 +27,8 @@ public class LilGuyAI : MonoBehaviour
     {
         if (canStart) {
             agent.destination = goal.position;
+
+            agent.isStopped = false;
             agent.stoppingDistance = 1;
 
             // Debug.Log(transform.position + ":" + goal.position);
@@ -69,10 +73,17 @@ public class LilGuyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Destination")
+        if (other.gameObject.tag == "Destination" && !wait)
         {
-            print("AHHHH");
             ChangeGoal();
+            StartCoroutine(Wait(other.gameObject));
         }
+    }
+
+    IEnumerator Wait(GameObject oldObject)
+    {
+        wait = true;
+        yield return new WaitForSeconds(2);
+        wait = false;
     }
 }

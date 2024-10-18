@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public int radius;
     int movementIndex;
     NavMeshAgent agent;
+    bool moving;
 
     private void Start()
     {
@@ -26,21 +27,30 @@ public class EnemyMovement : MonoBehaviour
         }
 
         DetectPlayer();
+
+        if (agent.velocity == Vector3.zero) { moving =  false; }
     }
 
     private void Stationary() { }
-    private void Movement1() { }
-    private void Movement2() { }
+    private void Movement1() {
+        int move = Random.Range(-5, 5);
+        if (!moving) { agent.destination = transform.position + Vector3.forward * move; }
+    }
+    private void Movement2() {
+        int move = Random.Range(-2, 2);
+        if (!moving) { agent.destination = transform.position + Vector3.forward * move; }
+    }
 
     private void DetectPlayer()
     {
         Vector3 center = this.transform.position;
-        Collider[] hits = Physics.OverlapSphere(center, radius); // maybe change to a cone or something for sight?
+        Collider[] hits = Physics.OverlapSphere(center, radius, 5, QueryTriggerInteraction.Collide); // maybe change to a cone or something for sight?
 
         foreach (Collider hit in hits)
         {
             if (hit.gameObject.tag == "Player")
             {
+                moving = true;
                 Debug.Log($"{hit.gameObject.name} was found");
                 // change destination to player
                 agent.destination = hit.gameObject.transform.position;
@@ -48,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {

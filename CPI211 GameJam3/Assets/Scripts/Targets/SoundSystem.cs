@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
 
 public class SoundSystem : MonoBehaviour
 {
@@ -22,10 +21,10 @@ public class SoundSystem : MonoBehaviour
 
     public void MakeSound()
     {
-        //clip.Play();
+        clip.Play();
 
         Vector3 center = this.transform.position;
-        Collider[] hits = Physics.OverlapSphere(center, radius);
+        Collider[] hits = Physics.OverlapSphere(center, radius, 0, QueryTriggerInteraction.Collide);
 
         foreach (Collider hit in hits)
         {
@@ -42,7 +41,8 @@ public class SoundSystem : MonoBehaviour
     IEnumerator ToggleSound()
     {
         toggle = false;
-        yield return new WaitForSeconds(5);
+        int sec = Random.Range(5, 15);
+        yield return new WaitForSeconds(sec);
         toggle = true;
     }
 }
